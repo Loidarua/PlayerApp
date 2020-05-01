@@ -1,0 +1,61 @@
+<h1>Ingresar<small> Aprende Jugando</small></h1>
+<hr>
+
+<div class="row text-right">
+
+    <div class="col">
+        <button routerLink="/players" class="btn btn-danger">
+            <i class="fa fa-arrow-left">            </i>
+        Regresar
+        </button>
+    </div>
+</div>
+
+<div class="row animated fadeIn faster">
+    <div class="col">
+        <form (ngSubmit)="guardar(f)" #f="ngForm">
+
+            <div class="form-group">
+                <label>Firebase ID</label>
+                <input [(ngModel)]="player.id" name="id" type="text" class="form-control" disabled="disabled" placeholder="Firabase ID">
+                <small class="form-text text-muted">Autogenerado </small>
+            </div>
+
+            <div class="form-group">
+                <label>Nombre</label>
+                <input [(ngModel)]="player.nombre" name="nombre" type="text" class="form-control" placeholder="Nombre del Jugador " required>
+            </div>
+
+            <div class="form-group">
+                <label>Curso</label>
+                <input [(ngModel)]="player.poder" name="curso" type="text" class="form-control" placeholder="Curso del Jugador ">
+
+            </div>
+
+            <div class="form-group">
+                <label>Tipo</label>
+                <br>
+                <button *ngIf="player.estudiante" (click)="player.estudiante=false" class="btn btn-outline-danger w-25" type="button">
+                    <i class=""></i>
+                    Estudiante
+                    </button>
+
+                <button *ngIf="!player.estudiante" (click)="player.estudiante=true" class="btn btn-outline-danger w-25  " type="button">
+                        <i class=""></i>
+                        Docente
+                        </button>
+            </div>
+
+            <hr>
+
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary w-25">
+                    <i class="fa fa-save"></i>
+                    Guardar
+                </button>
+            </div>
+
+
+        </form>
+    </div>
+</div>
